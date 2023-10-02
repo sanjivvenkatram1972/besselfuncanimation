@@ -9,14 +9,14 @@ import matplotlib.colors as mcolors
 import time
 
 #Input modes to calc roots
-var_im = int(input("Enter the number of modes - m: ,))
-var_in = int(input("Enter the number of modes - n: ,))
-var_clrmap = str(input("Enter the colormap for surface plot: ,))
-var_nc = int(input("Enter the number of cycles per mode: ,))
-var_fps = int(input("Enter the frames per second: ,))
-var_zlim = int(input("Enter the height of the z axis: ,))
-var_r_count = int(input("Enter the number of radial grids for surface plot: ,))
-var_c_count = int(input("Enter the number of angular grids for surface plot: ,))
+var_im = int(input("Enter the number of modes - m: ,"))
+var_in = int(input("Enter the number of modes - n: ,"))
+var_clrmap = str(input("Enter the colormap for surface plot: ,"))
+var_nc = int(input("Enter the number of cycles per mode: ,"))
+var_fps = int(input("Enter the frames per second: ,"))
+var_zlim = float(input("Enter the height of the z axis: ,"))
+var_r_count = int(input("Enter the number of radial grids for surface plot: ,"))
+var_c_count = int(input("Enter the number of angular grids for surface plot: ,")
 
 
 var_radius = 1 #This is the radius of the membrane
@@ -80,10 +80,6 @@ def update(i):
     ax.set_position([-0.14, 0.1, 1.0, 0.75])
     ax.axis('on')
     plt.suptitle(f'Vibration modes of a circular membrane (Bessel function): {m, n}',x=0.37,y=0.95, fontsize=25,color='red')
-
-    new_time = time.time()
-    elapsed_time = new_time - current_time
-    frms = var_fps * elapsed_time
 
     if i == len(tpl_modes) * var_nc * var_fps - 1:
         plt.close()
